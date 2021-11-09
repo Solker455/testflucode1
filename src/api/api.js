@@ -17,6 +17,6 @@ export function apiRegister(emailInput, passwordInput) {
 }
 
 export function getUsers(page) {
-    const url = `https://reqres.in/api/users?page=${page}`;
+    const url = `https://reqres.in/api/users?per_page=10&page=${page}`;
     return axios.get(url)
 }

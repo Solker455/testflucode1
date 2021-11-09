@@ -2,26 +2,16 @@ import React from "react";
 import { getUsers } from "../api/api";
 import { useState } from "react";
 import { useEffect } from "react";
-import { Redirect } from "react-router";
 import { useSelector } from "react-redux";
-import { Table, Button } from 'antd';
+import { Table, Pagination } from 'antd';
 
 export function ListUsers() {
     let [page, setPage] = useState(1);
     let [data, setData] = useState([]);
-    const token = useSelector(state => state.tokenReducer.token)
 
-    function prevPage(e) {
-        e.preventDefault();
-        if (page > 1) {
-            setPage(page - 1)
-        }
-    }
-    function nextPage(e) {
-        e.preventDefault();
-        if (page < 2) {
-            setPage(page + 1)
-        }
+    function nextPage(page) {
+        setPage(page)
+        console.log(page)
     }
 
     useEffect(() => {
@@ -62,17 +52,11 @@ export function ListUsers() {
             key: i
         });
     }
-    if (token) {
-        return (
-            <div>
-                <h1>Пользователи</h1>
-                <div className="page">
-                    <Button type="primary" onClick={prevPage}>Предыдущая страница</Button> <Button type="primary" onClick={nextPage}>Следующая страница</Button>
-                </div>
-                <Table dataSource={data} columns={columns} pagination={false} />;
-            </div>
-        )
-    } else {
-        return (<Redirect to="/login" />)
-    }
+    return (
+        <div>
+            <h1>Пользователи</h1>
+            <Pagination defaultCurrent={1} total={12} perPage={5} onChange={nextPage} />
+            <Table dataSource={data} columns={columns} pagination={false} />
+        </div>
+    )
 }

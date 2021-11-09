@@ -24,21 +24,21 @@ export function Register() {
             <div>
                 <h1>Регистрация</h1>
                 <form className="form" onSubmit={handleSubmit(onSubmit)}>
-                    <input className="input" {...register("email", { required: 'обязательное поле', pattern: { value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, message: 'Введите действующую электронную почту' } })} placeholder="Email" type="text" />
-                    <input className="input" {...register("password", { required: 'обязательное поле', minLength: { value: 6, message: 'Пароль не меньше 6 символов' } })} placeholder="Пароль" type="password" />
-                    <ErrorMessage errors={errors} name="email">
+                    <input className="input" {...register("email", { required: 'Email обязательное поле', pattern: { value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, message: 'Введите действующую электронную почту' } })} placeholder="Email" type="text" />
+                    <input className="input" {...register("password", { required: 'Пароль обязательное поле', minLength: { value: 6, message: 'Пароль не меньше 6 символов' } })} placeholder="Пароль" type="password" />
+                    <ErrorMessage errors={errors} name="email" as="div" className="error">
                         {({ messages }) =>
                             messages &&
                             Object.entries(messages).map(([type, message]) => (
-                                <i key={type}>{message}</i>
+                                {message}
                             ))
                         }
                     </ErrorMessage>
-                    <ErrorMessage errors={errors} name="password">
+                    <ErrorMessage errors={errors} name="password" as="div" className="error">
                         {({ messages }) =>
                             messages &&
                             Object.entries(messages).map(([type, message]) => (
-                                <i key={type}>{message}</i>
+                                {message}
                             ))
                         }
                     </ErrorMessage>
