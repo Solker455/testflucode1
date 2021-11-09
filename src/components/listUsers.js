@@ -1,24 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { getUsers } from "../api/api";
-import { useState } from "react";
-import { useEffect } from "react";
-import { useSelector } from "react-redux";
 import { Table, Pagination } from 'antd';
 
 export function ListUsers() {
+
     let [page, setPage] = useState(1);
     let [data, setData] = useState([]);
+    let [total, setTotal] = useState();
+    let [perPage, setPerPage] = useState();
+    const DEFAULT_CURRENT = 5;
 
-    function nextPage(page) {
+    const nextPage = function (page) {
         setPage(page)
-        console.log(page)
     }
 
     useEffect(() => {
         getUsers(page).then(responce => {
+            setPerPage(responce.data.per_page)
+            setTotal(responce.data.total)
             setData(responce.data.data);
         });
     }, [page]);
+
+
     const columns = [
         {
             title: 'ID',
@@ -47,15 +51,11 @@ export function ListUsers() {
             key: 'last_name',
         },
     ];
-    for (let i = 0; i > data.length; i++) {
-        data.push({
-            key: i
-        });
-    }
+
     return (
         <div>
             <h1>Пользователи</h1>
-            <Pagination defaultCurrent={1} total={12} perPage={5} onChange={nextPage} />
+            <Pagination defaultCurrent={DEFAULT_CURRENT} perPage={perPage} total={total} onChange={nextPage} />
             <Table dataSource={data} columns={columns} pagination={false} />
         </div>
     )

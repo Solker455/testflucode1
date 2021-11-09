@@ -9,7 +9,7 @@ export const tokenReducer = (state = defaultToken, action) => {
         case "ADD_TOKEN":
             return { ...state, token: action.token }
         case "DELETE_TOKEN":
-            return { ...state, token: undefined }
+            return {}
         default:
             return state
     }

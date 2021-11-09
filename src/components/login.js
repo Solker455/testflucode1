@@ -1,9 +1,7 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { apiLogin } from "../api/api";
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router";
 import { ErrorMessage } from "@hookform/error-message";
 import { Button } from 'antd';
@@ -34,7 +32,7 @@ export function Login() {
                             ))
                         }
                     </ErrorMessage>
-                    <ErrorMessage errors={errors} name="password" as='div' className="error"> 
+                    <ErrorMessage errors={errors} name="password" as='div' className="error">
                         {({ messages }) =>
                             messages &&
                             Object.entries(messages).map(([type, message]) => (

@@ -20,3 +20,10 @@ export function getUsers(page) {
     const url = `https://reqres.in/api/users?per_page=10&page=${page}`;
     return axios.get(url)
 }
+
+export const api = function (url, method) {
+    if (method === 'GET') {
+        let response = axios.get(url);
+        return (response)
+    }
+}
