@@ -7,7 +7,7 @@ import { Private } from './components/route/private';
 function App() {
   const token = useSelector(state => state.tokenReducer.token)
 
-  if (token) { return (<div><Header/><Private /></div>) } else { return (<div><Header/><Public /></div>) }
+  if (token) { return (<div><Private /></div>) } else { return (<div><Public /></div>) }
 
 }
 
