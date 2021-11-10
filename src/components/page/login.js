@@ -6,19 +6,19 @@ import { useForm } from "react-hook-form";
 import { apiLogin } from "../../api/api";
 
 export function Login() {
-    const token = useSelector(state => state.tokenReducer.token);
+    const auth = useSelector(state => state.tokenReducer.auth);
     const { register, handleSubmit, formState: { errors } } = useForm();
     let [message, setMessage] = useState('');
     const dispatch = useDispatch();
     const onSubmit = data => {
-        apiLogin(data.email, data.password).then(response => {
-            dispatch({ type: "ADD_TOKEN", token: response.data.token });
+        apiLogin(data.email, data.password).then(() => {
+            dispatch({ type: "ADD_TOKEN" });
         }).catch(() => {
             setMessage('Пользователь не найден')
         }
         )
     }
-    if (!token) {
+    if (!auth) {
         return <Form text='Вход' reg={register} submit={handleSubmit} err={errors} message={message} onsubmit={onSubmit} />
     } else {
         return (<Redirect to="/listusers" />)

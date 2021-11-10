@@ -6,19 +6,19 @@ import { useForm } from "react-hook-form";
 import { apiRegister } from "../../api/api";
 
 export function Register() {
-    const token = useSelector(state => state.tokenReducer.token);
+    const auth = useSelector(state => state.tokenReducer.auth);
     const { register, handleSubmit, formState: { errors } } = useForm();
     let [message, setMessage] = useState('');
     const dispatch = useDispatch();
     const onSubmit = data => {
-        apiRegister(data.email, data.password).then(response => {
-            dispatch({ type: "ADD_TOKEN", token: response.data.token });
+        apiRegister(data.email, data.password).then(() => {
+            dispatch({ type: "ADD_TOKEN" });
         }).catch(() => {
             setMessage('Ошибка регистрации')
         }
         )
     }
-    if (!token) {
+    if (!auth) {
         return <Form text='Регистрация' reg={register} submit={handleSubmit} err={errors} message={message} onsubmit={onSubmit} />
     } else {
         return (<Redirect to="/listusers" />)

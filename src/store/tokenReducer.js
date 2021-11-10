@@ -1,14 +1,14 @@
+import { createReducer } from "@reduxjs/toolkit";
+import { logoutActionCreator_token, addActionCreator_token } from "./actions";
 const defaultToken = {
-    token: undefined
+    auth: null
 };
 
-export const tokenReducer = (state = defaultToken, action) => {
-    switch (action.type) {
-        case "ADD_TOKEN":
-            return { ...state, token: action.token }
-        case "DELETE_TOKEN":
-            return {}
-        default:
-            return state
+export default createReducer (defaultToken, {
+    [addActionCreator_token]: function(state) {
+        state.auth = true
+    },
+    [logoutActionCreator_token]: function(state) {
+        state.auth = false
     }
-}
+})

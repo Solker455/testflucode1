@@ -4,13 +4,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { logoutActionCreator_token } from "../../store/actions";
 
 export function Header() {
-    const token = useSelector(state => state.tokenReducer.token)
+    const auth = useSelector(state => state.tokenReducer.auth)
     const dispatch = useDispatch();
     const logout = async () => {
         await dispatch(logoutActionCreator_token());
     }
-    if (!token) {
-
+    if (!auth) {
 
         return (
             <div className="menu-block">

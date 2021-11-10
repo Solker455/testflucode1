@@ -4,9 +4,9 @@ import { Public } from './components/route/public';
 import { Private } from './components/route/private';
 
 function App() {
-  const token = useSelector(state => state.tokenReducer.token)
+  const auth = useSelector(state => state.tokenReducer.auth)
 
-  if (token) { return (<div><Private /></div>) } else { return (<div><Public /></div>) }
+  if (auth) { return (<div><Private /></div>) } else { return (<div><Public /></div>) }
 
 }
 

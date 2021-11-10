@@ -1,2 +1,4 @@
-const DELETE_TOKEN = 'DELETE_TOKEN';
-export const logoutActionCreator_token = (data) => ({ type: DELETE_TOKEN, data });
+import { createAction } from "@reduxjs/toolkit";
+
+export const logoutActionCreator_token = createAction('DELETE_TOKEN')
+export const addActionCreator_token = createAction('ADD_TOKEN')
