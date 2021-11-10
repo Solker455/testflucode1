@@ -31,31 +31,37 @@ export function ListUsers() {
         {
             title: 'Аватарка',
             dataIndex: 'avatar',
-            key: 'avatar',
+            key: 'id',
             render: avatar => <img src={avatar} alt="avatar" />
         },
         {
             title: 'Email',
             dataIndex: 'email',
-            key: 'email',
+            key: 'id',
         },
         {
             title: 'Имя',
             dataIndex: 'first_name',
-            key: 'first_name',
+            key: 'id',
         },
         {
             title: 'Фамилия',
             dataIndex: 'last_name',
-            key: 'last_name',
+            key: 'id',
         },
     ];
-
+    for (let i = 0; i > data.length; i++) {
+        data.push({
+          key: i
+        });
+        console.log('добавил i')
+      }
+console.log(data)
     return (
         <div>
             <h1>Пользователи</h1>
             <Pagination perPage={perPage} total={total} onChange={nextPage} />
-            <Table dataSource={data} columns={columns} pagination={false} />
+            <Table dataSource={data} columns={columns} pagination={false} rowKey='id'/>
         </div>
     )
 }

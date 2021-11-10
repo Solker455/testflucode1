@@ -8,7 +8,7 @@ export function PublicRoute() {
     return (<Router>
         <Header />
         <Route path="/register" ><Register /></Route>
-        <Route path="/login" exact><Login /></Route>
+        <Route path="/login" ><Login /></Route>
         <Redirect to='/login' />
     </Router>)
 }
