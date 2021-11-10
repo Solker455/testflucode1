@@ -1,8 +1,8 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
-import tokenReducer from './tokenReducer'
+import tokenSlice from './slice'
 
 const rootReducer = combineReducers({
-    tokenReducer,
+    tokenSlice,
   })
 
 export const store = configureStore ({
