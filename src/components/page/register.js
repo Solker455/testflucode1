@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { Redirect } from "react-router";
+import { useDispatch } from "react-redux";
 import { Form } from "../component/form";
 import { useForm } from "react-hook-form";
 import { apiRegister } from "../../api/api";
 
 export function Register() {
-    const auth = useSelector(state => state.tokenReducer.auth);
     const { register, handleSubmit, formState: { errors } } = useForm();
     let [message, setMessage] = useState('');
     const dispatch = useDispatch();
@@ -18,9 +16,5 @@ export function Register() {
         }
         )
     }
-    if (!auth) {
         return <Form text='Регистрация' reg={register} submit={handleSubmit} err={errors} message={message} onsubmit={onSubmit} />
-    } else {
-        return (<Redirect to="/listusers" />)
-    }
 }

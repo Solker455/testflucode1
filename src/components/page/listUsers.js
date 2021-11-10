@@ -8,7 +8,6 @@ export function ListUsers() {
     let [data, setData] = useState([]);
     let [total, setTotal] = useState();
     let [perPage, setPerPage] = useState();
-    const DEFAULT_CURRENT = 5;
 
     const nextPage = function (page) {
         setPage(page)
@@ -55,7 +54,7 @@ export function ListUsers() {
     return (
         <div>
             <h1>Пользователи</h1>
-            <Pagination defaultCurrent={DEFAULT_CURRENT} perPage={perPage} total={total} onChange={nextPage} />
+            <Pagination perPage={perPage} total={total} onChange={nextPage} />
             <Table dataSource={data} columns={columns} pagination={false} />
         </div>
     )
