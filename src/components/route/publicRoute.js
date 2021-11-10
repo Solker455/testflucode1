@@ -4,7 +4,7 @@ import { Login } from "../page/login";
 import { Register } from "../page/register";
 import { Header } from "../page/header";
 
-export function Public() {
+export function PublicRoute() {
     return (<Router>
         <Header />
         <Route path="/register" ><Register /></Route>

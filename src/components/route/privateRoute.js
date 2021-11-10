@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { ListUsers } from "../page/listUsers";
 import { Header } from "../page/header";
 
-export function Private() {
+export function PrivateRoute() {
     return (<Router>
         <Header />
         <Route path="/listusers"><ListUsers /></Route>

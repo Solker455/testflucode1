@@ -16,5 +16,5 @@ export function Login() {
         }
         )
     }
-        return <Form text='Вход' reg={register} submit={handleSubmit} err={errors} message={message} onsubmit={onSubmit} />
+    return <Form text='Вход' reg={register} submit={handleSubmit} err={errors} message={message} onsubmit={onSubmit} />
 }
