@@ -17,5 +17,5 @@ export function Register() {
         }
         )
     }
-    return <Form text='Регистрация' reg={register} submit={handleSubmit} err={errors} message={message} onsubmit={onSubmit} />
+    return <Form text='Регистрация' register={register} handlesubmit={handleSubmit} errors={errors} message={message} onsubmit={onSubmit} />
 }
