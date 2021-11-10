@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { logoutActionCreator_token } from '../../store/tokenReducer';
+import { logoutActionCreator_token } from "../../store/actions";
 
 export function Header() {
     const token = useSelector(state => state.tokenReducer.token)
