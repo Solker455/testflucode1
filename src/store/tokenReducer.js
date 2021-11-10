@@ -1,7 +1,7 @@
 import { createReducer } from "@reduxjs/toolkit";
 import { logoutActionCreator_token, addActionCreator_token } from "./actions";
 const defaultToken = {
-    auth: null
+    auth: false
 };
 
 export default createReducer (defaultToken, {
