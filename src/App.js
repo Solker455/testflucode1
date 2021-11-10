@@ -1,11 +1,10 @@
 import './App.css';
-import { Login } from './components/login';
-import { Register } from './components/register';
-import { ListUsers } from './components/listUsers';
-import { Header } from './components/header';
+import { Login } from './components/page/login';
+import { Register } from './components/page/register';
+import { ListUsers } from './components/page/listUsers';
+import { Header } from './components/page/header';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { api } from './api/api';
 
 function App() {
   const token = useSelector(state => state.tokenReducer.token)
@@ -19,8 +18,7 @@ function App() {
 
     />
   )
-  console.log(api('https://reqres.in/api/users?page=2', 'GET'));
-  
+
   return (
     <div className="App">
       <Router>

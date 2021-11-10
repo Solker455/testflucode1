@@ -21,9 +21,10 @@ export function getUsers(page) {
     return axios.get(url)
 }
 
-export const api = function (url, method) {
+export const api = async function (url, method) {
     if (method === 'GET') {
-        let response = axios.get(url);
-        return (response)
+        let response = await axios.get(url).then(response => {
+            return(response)
+        });
     }
 }

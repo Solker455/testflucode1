@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getUsers } from "../api/api";
+import { getUsers } from "../../api/api";
 import { Table, Pagination } from 'antd';
 
 export function ListUsers() {
