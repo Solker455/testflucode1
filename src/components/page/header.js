@@ -26,6 +26,7 @@ export function Header() {
             <div className="menu-block">
                 <div className="menu">
                     <Link className="link" to="/">Главная</Link>
+                    <Link className="link" to="/listusers">Список пользователей</Link>
                     <button onClick={logout} className='linkButton'>Выход</button>
                 </div>
             </div>

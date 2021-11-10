@@ -1,5 +1,4 @@
 import './App.css';
-import { Header } from './components/page/header';
 import { useSelector } from 'react-redux';
 import { Public } from './components/route/public';
 import { Private } from './components/route/private';
