@@ -1,21 +1,14 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Form } from "../component/form";
 import { useForm } from "react-hook-form";
-import { apiRegister } from "../../api/api";
-import { addActionCreator_token } from "../../store/slice";
+import { asyncThunkRegister } from "../../store/slice";
 
 export function Register() {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    let [message, setMessage] = useState('');
+    let message = useSelector(state => state.rootSlice.message)
     const dispatch = useDispatch();
-    const onSubmit = data => {
-        apiRegister(data.email, data.password).then((responce) => {
-            dispatch(addActionCreator_token(responce.data.token));
-        }).catch(() => {
-            setMessage('Ошибка регистрации')
-        }
-        )
+    const onSubmit = input => {
+        dispatch(asyncThunkRegister(input.email, input.password));
     }
     return <Form text='Регистрация' register={register} handlesubmit={handleSubmit} errors={errors} message={message} onsubmit={onSubmit} />
 }

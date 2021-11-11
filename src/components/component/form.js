@@ -12,7 +12,7 @@ export function Form(obj) {
                 <ErrorMessage errors={obj.errors} name="email" as='div' className="error">
                     {({ messages }) =>
                         messages &&
-                        Object.entries(messages).map(([type, message]) => (
+                        Object.entries(messages).map(([message]) => (
                             { message }
                         ))
                     }
@@ -20,12 +20,12 @@ export function Form(obj) {
                 <ErrorMessage errors={obj.errors} name="password" as='div' className="error">
                     {({ messages }) =>
                         messages &&
-                        Object.entries(messages).map(([type, message]) => (
+                        Object.entries(messages).map(([message]) => (
                             { message }
                         ))
                     }
                 </ErrorMessage>
-                <div>{obj.message}</div>
+                <div className="error">{obj.message}</div>
                 <hr />
                 <Button type="primary" htmlType="submit" size='large' shape='round' >{obj.text}</Button>
             </form>
