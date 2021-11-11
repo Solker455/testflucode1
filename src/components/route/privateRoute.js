@@ -1,12 +1,14 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { ListUsers } from "../page/listUsers";
 import { Header } from "../page/header";
 
 export function PrivateRoute() {
-    return (<Router>
+    return (<div>
         <Header />
-        <Route path="/listusers"><ListUsers /></Route>
-        <Redirect to="/listusers" />
-    </Router>)
+        <Routes>
+            <Route path="/listusers" element={<ListUsers />} />
+            <Route path='*' element={<ListUsers />} />
+        </Routes>
+    </div>)
 }
