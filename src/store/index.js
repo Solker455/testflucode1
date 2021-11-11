@@ -3,8 +3,8 @@ import authSlice from './authSlice'
 import getUsersSlice from './getUsersSlice'
 
 const rootReducer = combineReducers({
-  authSlice,
-  getUsersSlice
+  auth:authSlice,
+  getusers: getUsersSlice
 })
 
 export const store = configureStore({

@@ -4,7 +4,7 @@ import { PublicRoute } from './components/route/publicRoute';
 import { PrivateRoute } from './components/route/privateRoute';
 
 function App() {
-  const auth = useSelector(state => state.authSlice.auth)
+  const auth = useSelector(state => state.auth.auth)
 
   return (auth) ? <PrivateRoute /> : <PublicRoute />
 

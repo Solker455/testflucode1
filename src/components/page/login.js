@@ -5,7 +5,7 @@ import { asyncThunkLogin } from "../../store/asyncThunk";
 
 export function Login() {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    let message = useSelector(state => state.authSlice.message)
+    let message = useSelector(state => state.auth.message)
     const dispatch = useDispatch();
     const onSubmit = input => {
         dispatch(asyncThunkLogin(input.email, input.password));

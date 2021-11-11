@@ -18,7 +18,7 @@ export const asyncThunkLogin = createAsyncThunk(
     }
 )
 export const asyncThunkRegister = createAsyncThunk(
-    'asyncThunkLogin',
+    'asyncThunkRegister',
     async function (emailInput, passwordInput) {
         const responce = await apiRegister(emailInput, passwordInput)
         return responce.data;

@@ -7,8 +7,8 @@ export function ListUsers() {
 
     let [page, setPage] = useState(1);
     let dispatch = useDispatch();
-    let data = useSelector(state => state.getUsersSlice.data);
-    let loading = useSelector(state => state.getUsersSlice.loading);
+    let data = useSelector(state => state.getusers.data);
+    let loading = useSelector(state => state.getusers.loading);
 
     const nextPage = function (page) {
         setPage(page)

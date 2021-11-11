@@ -5,7 +5,7 @@ import { asyncThunkRegister } from "../../store/asyncThunk";
 
 export function Register() {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    let message = useSelector(state => state.authSlice.message)
+    let message = useSelector(state => state.auth.message)
     const dispatch = useDispatch();
     const onSubmit = input => {
         dispatch(asyncThunkRegister(input.email, input.password));
