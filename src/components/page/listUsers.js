@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Table, Pagination } from 'antd';
-import { asyncThunkUsers } from "../../store/slice";
 import { useDispatch, useSelector } from "react-redux";
+import { asyncThunkUsers } from "../../store/asyncThunk";
 
 export function ListUsers() {
 
     let [page, setPage] = useState(1);
     let dispatch = useDispatch();
-    let data = useSelector(state => state.rootSlice.data);
-    let loading = useSelector(state => state.rootSlice.loading);
+    let data = useSelector(state => state.getUsersSlice.data);
+    let loading = useSelector(state => state.getUsersSlice.loading);
 
     const nextPage = function (page) {
         setPage(page)
@@ -46,13 +46,14 @@ export function ListUsers() {
         },
     ];
     if (loading) {
-    return (
-        <div>
-            <h1>Пользователи</h1>
-            <Pagination perPage={data.perPage} total={data.total} onChange={nextPage} />
-            <Table dataSource={data.data} columns={columns} pagination={false} rowKey='id' />
-        </div>
-    )}else{
-        return(<div>Загрузка</div>)
+        return (
+            <div>
+                <h1>Пользователи</h1>
+                <Pagination perPage={data.perPage} total={data.total} onChange={nextPage} />
+                <Table dataSource={data.data} columns={columns} pagination={false} rowKey='id' />
+            </div>
+        )
+    } else {
+        return (<div>Загрузка</div>)
     }
 }
