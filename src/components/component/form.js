@@ -3,8 +3,9 @@ import { ErrorMessage } from "@hookform/error-message";
 import { Button } from 'antd';
 
 export function Form(obj) {
+
     return (
-        <div>
+        <div className='authForm'>
             <h1>{obj.text}</h1>
             <form className="form" onSubmit={obj.handlesubmit(obj.onsubmit)}>
                 <input className="input" {...obj.register("email", { required: 'Email обязательное поле', pattern: { value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, message: 'Введите действующую электронную почту' } })} placeholder="Email" type="text" />
@@ -27,7 +28,7 @@ export function Form(obj) {
                 </ErrorMessage>
                 <div className="error">{obj.message}</div>
                 <hr />
-                <Button type="primary" htmlType="submit" size='large' shape='round' >{obj.text}</Button>
+                <Button type="primary" htmlType="submit" size='large' shape='round' onClick={() => obj.clearErrors()}>{obj.text}</Button>
             </form>
         </div>
     )

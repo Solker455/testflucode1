@@ -7,8 +7,7 @@ export function PrivateRoute() {
     return (<div>
         <Header />
         <Routes>
-            <Route path="/listusers" element={<ListUsers />} />
-            <Route path='*' element={<ListUsers />} />
+            <Route exact path="/listusers" element={<ListUsers />} />
         </Routes>
     </div>)
 }

@@ -17,13 +17,14 @@
 }
 
 .input {
-    margin: 0 10px;
-    width: 300px;
+    margin: 10px auto;
+    width: 400px;
     height: 40px;
     border-radius: 10px 10px 10px 10px;
     border: 1px solid #1890ff;
     text-align: center;
     font-size: 12pt;
+    display: block !important;
 }
 
 .input:focus {
@@ -58,4 +59,7 @@ h1 {
     font-size: 14pt;
     color: brown;
     font-weight: bold;
+}
+.authForm {
+    text-align: center;
 }

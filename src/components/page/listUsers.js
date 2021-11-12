@@ -16,12 +16,12 @@ export function ListUsers() {
 
     useEffect(() => {
         dispatch(asyncThunkUsers(page))
-    }, [page]);
+    }, [dispatch, page]);
     const columns = [
         {
             title: 'ID',
             dataIndex: 'id',
-            key: 'id',
+            key: 'id'
         },
         {
             title: 'Аватарка',
@@ -32,17 +32,17 @@ export function ListUsers() {
         {
             title: 'Email',
             dataIndex: 'email',
-            key: 'id',
+            key: 'id'
         },
         {
             title: 'Имя',
             dataIndex: 'first_name',
-            key: 'id',
+            key: 'id'
         },
         {
             title: 'Фамилия',
             dataIndex: 'last_name',
-            key: 'id',
+            key: 'id'
         },
     ];
     if (loading) {
