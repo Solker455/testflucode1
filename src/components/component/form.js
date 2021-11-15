@@ -28,7 +28,7 @@ export function Form(obj) {
                 </ErrorMessage>
                 <div className="error">{obj.message}</div>
                 <hr />
-                <Button type="primary" htmlType="submit" size='large' shape='round' onClick={() => obj.clearErrors()}>{obj.text}</Button>
+                <Button type="primary" htmlType="submit" size='large' loading={obj.loading} shape='round' onClick={() => obj.clearErrors()}>{obj.text}</Button>
             </form>
         </div>
     )

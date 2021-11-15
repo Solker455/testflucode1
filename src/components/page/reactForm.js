@@ -6,6 +6,7 @@ import { ErrorMessage } from "@hookform/error-message";
 export function ReactForm() {
     const { handleSubmit, control, formState: { errors } } = useForm({
     });
+
     return (
         <form onSubmit={handleSubmit(data => console.log(data))}>
             <Controller
