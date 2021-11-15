@@ -8,6 +8,7 @@ export function PublicLink() {
                 <Link className="link" to="/">Главная</Link>
                 <Link className="link" to="/login">Войти</Link>
                 <Link className="link" to="/register">Регистрация</Link>
+                <Link className="link" to="/testform">Тестовая форма</Link>
             </div>
         </div>
     )
