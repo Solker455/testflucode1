@@ -2,25 +2,26 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { getUsers, apiLogin, apiRegister } from "../api/api";
 
 export const asyncThunkUsers = createAsyncThunk(
-    'asyncThunkUsers',
-    async function (page) {
-        const responce = await getUsers(page)
+    'getUsersSlice/asyncThunkUsers',
+    async function (pages) {
+        const responce = await getUsers(pages.perPage, pages.page)
+        console.log(pages)
         return responce.data;
 
     }
 )
 export const asyncThunkLogin = createAsyncThunk(
-    'asyncThunkLogin',
-    async function (emailInput, passwordInput) {
-        const responce = await apiLogin(emailInput, passwordInput)
+    'authSlice/asyncThunkLogin',
+    async function (input) {
+        const responce = await apiLogin(input.email, input.password)
         return responce.data;
 
     }
 )
 export const asyncThunkRegister = createAsyncThunk(
-    'asyncThunkRegister',
-    async function (emailInput, passwordInput) {
-        const responce = await apiRegister(emailInput, passwordInput)
+    'authSlice/asyncThunkRegister',
+    async function (input) {
+        const responce = await apiRegister(input.email, input.password)
         return responce.data;
 
     }

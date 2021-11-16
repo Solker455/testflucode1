@@ -11,7 +11,7 @@ export function Register() {
     const dispatch = useDispatch();
     const onSubmit = input => {
         setLoadingButton(true)
-        dispatch(asyncThunkRegister(input.email, input.password));
+        dispatch(asyncThunkRegister(input));
         setLoadingButton(false)
     }
     return <Form text='Регистрация' register={register} handlesubmit={handleSubmit} loading={loadingButton} errors={errors} message={message} onsubmit={onSubmit} clearErrors={clearErrors} />

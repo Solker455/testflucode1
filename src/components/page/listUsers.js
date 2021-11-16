@@ -4,19 +4,19 @@ import { useDispatch, useSelector } from "react-redux";
 import { asyncThunkUsers } from "../../store/asyncThunk";
 
 export function ListUsers() {
-
     let [page, setPage] = useState(1);
     let dispatch = useDispatch();
     let data = useSelector(state => state.getusers.data)
+    let [perPage, setPerPage] = useState(data.per_page);
     let loading = useSelector(state => state.getusers.loading);
 
-    const nextPage = function (page) {
-        setPage(page)
+    const nextPageChange = function (value) {
+        setPage(value)
     }
-
     useEffect(() => {
-        dispatch(asyncThunkUsers(page))
-    }, [dispatch, page]);
+        let pages = { perPage, page }
+        dispatch(asyncThunkUsers(pages))
+    }, [dispatch, page, perPage]);
     const columns = [
         {
             title: 'ID',
@@ -45,15 +45,14 @@ export function ListUsers() {
             key: 'id'
         },
     ];
-    if (loading) {
-        return (
-            <div>
-                <h1>Пользователи</h1>
-                <Pagination perPage={data.perPage} total={data.total} onChange={nextPage} />
-                <Table dataSource={data.data} columns={columns} pagination={false} rowKey='id' />
-            </div>
-        )
-    } else {
-        return (<div>Загрузка</div>)
+    function onShowSizeChange(current, pageSize) {
+        setPerPage(pageSize)
     }
+    return (
+        <div>
+            <h1>Пользователи</h1>
+            <Pagination total={data.total} onChange={nextPageChange} showSizeChanger onShowSizeChange={onShowSizeChange} />
+            <Table dataSource={data.data} columns={columns} pagination={false} rowKey='id' loading={!loading} />
+        </div>
+    )
 }

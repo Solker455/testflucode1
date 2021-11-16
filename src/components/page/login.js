@@ -12,7 +12,7 @@ export function Login() {
     const dispatch = useDispatch();
     const onSubmit = input => {
         setLoadingButton(true)
-        dispatch(asyncThunkLogin(input.email, input.password));
+        dispatch(asyncThunkLogin(input));
         setLoadingButton(false)
     }
     return (
