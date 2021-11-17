@@ -6,22 +6,29 @@ import { asyncThunkUsers } from "../../store/asyncThunk";
 export function ListUsers() {
     let [page, setPage] = useState(1);
     let dispatch = useDispatch();
-    let data = useSelector(state => state.getusers.data)
-    let [perPage, setPerPage] = useState(data.per_page);
     let loading = useSelector(state => state.getusers.loading);
+    let data = useSelector(state => state.getusers.data)
+    let [perPage, setPerPage] = useState(10);
 
     const nextPageChange = function (value) {
         setPage(value)
     }
+    const onShowSizeChange = function (current, pageSize) {
+        setPerPage(pageSize)
+    }
+
     useEffect(() => {
         let pages = { perPage, page }
         dispatch(asyncThunkUsers(pages))
     }, [dispatch, page, perPage]);
+
+
     const columns = [
         {
             title: 'ID',
             dataIndex: 'id',
-            key: 'id'
+            key: 'id',
+            sorter: (a, b) => b.id - a.id,
         },
         {
             title: 'Аватарка',
@@ -45,14 +52,13 @@ export function ListUsers() {
             key: 'id'
         },
     ];
-    function onShowSizeChange(current, pageSize) {
-        setPerPage(pageSize)
-    }
+
+
     return (
         <div>
             <h1>Пользователи</h1>
             <Pagination total={data.total} onChange={nextPageChange} showSizeChanger onShowSizeChange={onShowSizeChange} />
-            <Table dataSource={data.data} columns={columns} pagination={false} rowKey='id' loading={!loading} />
+            <Table dataSource={data.data} columns={columns} pagination={false} rowKey='id' loading={!loading}/>
         </div>
     )
 }

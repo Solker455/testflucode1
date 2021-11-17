@@ -5,7 +5,6 @@ export const asyncThunkUsers = createAsyncThunk(
     'getUsersSlice/asyncThunkUsers',
     async function (pages) {
         const responce = await getUsers(pages.perPage, pages.page)
-        console.log(pages)
         return responce.data;
 
     }
