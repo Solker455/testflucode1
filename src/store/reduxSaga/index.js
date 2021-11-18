@@ -16,4 +16,4 @@ export const store = createStore(rootReducer,
     )
 )
 
-sagaMiddleware.run(rootSaga) 
+sagaMiddleware.run(rootSaga)

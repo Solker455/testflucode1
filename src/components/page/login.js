@@ -11,7 +11,7 @@ export function Login() {
     const dispatch = useDispatch();
     const onSubmit = input => {
         setLoadingButton(true)
-        dispatch({type: 'SET_LOGIN', payload: input});
+        dispatch({ type: 'SET_LOGIN', payload: input });
         setLoadingButton(false)
     }
     return (

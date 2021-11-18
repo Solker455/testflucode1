@@ -30,7 +30,7 @@ export function ReactForm() {
                 name="password"
                 rules={{
                     required: { value: true, message: 'Пароль обязательное поле' },
-                    minLength: {value: 6, message: 'Введите пароль больше 6 символов'}
+                    minLength: { value: 6, message: 'Введите пароль больше 6 символов' }
                 }}
                 render={({ field: { onChange, onBlur } }) => (
                     <Input
@@ -47,9 +47,9 @@ export function ReactForm() {
                 name="age"
                 rules={{
                     required: { value: true, message: 'Возраст обязательное поле' },
-                    pattern: {value: /^([0-9]+|\d+)$/i, message: 'Введите настоящий возраст'},
-                    min: {value: 1, message: 'Введите возраст больше 1'},
-                    max: {value: 99, message: 'Введите возраст меньше 99'}
+                    pattern: { value: /^([0-9]+|\d+)$/i, message: 'Введите настоящий возраст' },
+                    min: { value: 1, message: 'Введите возраст больше 1' },
+                    max: { value: 99, message: 'Введите возраст меньше 99' }
                 }}
                 render={({ field: { onChange, onBlur } }) => (
                     <Input

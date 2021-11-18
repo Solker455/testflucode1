@@ -18,7 +18,7 @@ export function ListUsers() {
 
     useEffect(() => {
         let pages = { perPage, page }
-        dispatch({type: 'GET_USERS', payload: pages});
+        dispatch({ type: 'GET_USERS', payload: pages });
     }, [dispatch, page, perPage]);
 
 
@@ -57,7 +57,7 @@ export function ListUsers() {
         <div>
             <h1>Пользователи</h1>
             <Pagination total={data.total} onChange={nextPageChange} showSizeChanger onShowSizeChange={onShowSizeChange} />
-            <Table dataSource={data.data} columns={columns} pagination={false} rowKey='id' loading={!loading}/>
+            <Table dataSource={data.data} columns={columns} pagination={false} rowKey='id' loading={!loading} />
         </div>
     )
 }
