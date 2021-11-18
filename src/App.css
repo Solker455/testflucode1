@@ -53,6 +53,13 @@ h1 {
     background:none!important;
     border:none; 
     cursor: pointer;
+    transition: color 0.3s;
+}
+.linkButton:hover {
+    color: #22a6ff;
+}
+.linkButton:active {
+    color: #1672af;
 }
 
 .error {
