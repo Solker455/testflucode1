@@ -2,14 +2,13 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { PublicLink } from "../link/publicLink";
 import { PrivateLink } from "../link/privateLink";
-import { logoutActionCreator_token } from "../../store/authSlice";
 
 
 export function Header() {
-    const auth = useSelector(state => state.auth.auth)
+    const auth = useSelector(state => state.login.auth)
     const dispatch = useDispatch();
     const logout = async () => {
-        await dispatch(logoutActionCreator_token());
+        await dispatch({type: 'LOGOUT'});
     }
     return (auth) ? <PrivateLink logout={logout} /> : <PublicLink />
 }

@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Table, Pagination } from 'antd';
 import { useDispatch, useSelector } from "react-redux";
-import { asyncThunkUsers } from "../../store/asyncThunk";
 
 export function ListUsers() {
     let [page, setPage] = useState(1);
     let dispatch = useDispatch();
-    let loading = useSelector(state => state.getusers.loading);
-    let data = useSelector(state => state.getusers.data)
+    let loading = useSelector(state => state.users.loading);
+    let data = useSelector(state => state.users.data)
     let [perPage, setPerPage] = useState(10);
 
     const nextPageChange = function (value) {
@@ -19,7 +18,7 @@ export function ListUsers() {
 
     useEffect(() => {
         let pages = { perPage, page }
-        dispatch(asyncThunkUsers(pages))
+        dispatch({type: 'GET_USERS', payload: pages});
     }, [dispatch, page, perPage]);
 
 
