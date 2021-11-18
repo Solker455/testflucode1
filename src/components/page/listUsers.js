@@ -57,7 +57,8 @@ export function ListUsers() {
         <div>
             <h1>Пользователи</h1>
             <Pagination total={data.total} onChange={nextPageChange} showSizeChanger onShowSizeChange={onShowSizeChange} />
-            <Table dataSource={data.data} columns={columns} pagination={false} rowKey='id' loading={!loading} />
+            <hr />
+            <Table dataSource={data.data} columns={columns} pagination={false} rowKey='id' loading={loading} />
         </div>
     )
 }

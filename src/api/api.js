@@ -5,6 +5,8 @@ export function apiLogin(emailInput, passwordInput) {
     return axios.post(url, {
         email: emailInput,
         password: passwordInput
+    }).catch(error => {
+        return error.response
     })
 }
 
@@ -13,10 +15,12 @@ export function apiRegister(emailInput, passwordInput) {
     return axios.post(url, {
         email: emailInput,
         password: passwordInput
+    }).catch(error => {
+        return error.response
     })
 }
 
 export function getUsers(perPage, page) {
     const url = `https://reqres.in/api/users?page=${page}&per_page=${perPage}`;
-    return axios.get(url)
+    return axios.get(url) 
 }
