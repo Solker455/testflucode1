@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route } from 'react-router-dom';
 import { ListUsers } from "../page/listUsers";
-import { Header } from "../page/header";
+import { Header } from "../component/header";
 
 export function PrivateRoute() {
     return (<div>

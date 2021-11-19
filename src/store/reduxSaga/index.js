@@ -1,6 +1,6 @@
 import { applyMiddleware, createStore, combineReducers } from "redux";
 import createSagaMiddleware from "@redux-saga/core";
-import { loginRerucer, usersReducer } from "./reducer";
+import { loginRerucer, usersReducer } from "./reducers";
 import rootSaga from "./sagas";
 
 const sagaMiddleware = createSagaMiddleware()
