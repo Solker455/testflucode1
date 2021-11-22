@@ -1,3 +1,4 @@
+import { FormattedMessage } from "react-intl"
 const initialLogin = {
     auth: false,
     token: null,
@@ -31,7 +32,7 @@ export const loginRerucer = function (state = initialLogin, action) {
         case 'ERROR_LOGIN': {
             return {
                 ...state,
-                message: 'Ошибка авторизации',
+                message: <FormattedMessage id='ERROR_LOGIN' />,
                 loading: state.loading ? false : true
             }
         }

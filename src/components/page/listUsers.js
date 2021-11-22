@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Table, Pagination } from 'antd';
 import { useDispatch, useSelector } from "react-redux";
+import { FormattedMessage } from 'react-intl';
 
 export function ListUsers() {
     let [page, setPage] = useState(1);
@@ -30,7 +31,7 @@ export function ListUsers() {
             sorter: (a, b) => b.id - a.id,
         },
         {
-            title: 'Аватарка',
+            title: <FormattedMessage id='AVATAR' />,
             dataIndex: 'avatar',
             key: 'id',
             render: avatar => <img src={avatar} alt="avatar" />
@@ -41,12 +42,12 @@ export function ListUsers() {
             key: 'id'
         },
         {
-            title: 'Имя',
+            title: <FormattedMessage id='LAST_NAME' />,
             dataIndex: 'first_name',
             key: 'id'
         },
         {
-            title: 'Фамилия',
+            title: <FormattedMessage id='FIRST_NAME' />,
             dataIndex: 'last_name',
             key: 'id'
         },
@@ -55,7 +56,7 @@ export function ListUsers() {
 
     return (
         <div>
-            <h1>Пользователи</h1>
+            <h1><FormattedMessage id='H1_PAGE_LOGIN' /></h1>
             <Pagination total={data.total} onChange={nextPageChange} showSizeChanger onShowSizeChange={onShowSizeChange} />
             <hr />
             <Table dataSource={data.data} columns={columns} pagination={false} rowKey='id' loading={loading} />

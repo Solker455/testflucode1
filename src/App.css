@@ -63,6 +63,7 @@ h1 {
 }
 
 .error {
+    display: inline;
     font-size: 14pt;
     color: brown;
     font-weight: bold;
