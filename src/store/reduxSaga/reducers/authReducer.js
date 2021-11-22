@@ -4,10 +4,6 @@ const initialLogin = {
     loading: false,
     message: null
 }
-const initialUsers = {
-    loading: false,
-    data: []
-}
 
 export const loginRerucer = function (state = initialLogin, action) {
     switch (action.type) {
@@ -37,29 +33,6 @@ export const loginRerucer = function (state = initialLogin, action) {
                 ...state,
                 message: 'Ошибка авторизации',
                 loading: state.loading ? false : true
-            }
-        }
-        default: return state;
-    }
-}
-
-export const usersReducer = function (state = initialUsers, action) {
-    switch (action.type) {
-        case 'LOAD_USERS': {
-            return {
-                ...state,
-                data: action.users
-            }
-        }
-        case 'LOADING_USERS': {
-            return {
-                ...state,
-                loading: state.loading ? false : true
-            }
-        }
-        case 'LOGOUT': {
-            return {
-                data: []
             }
         }
         default: return state;
